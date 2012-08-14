@@ -1,0 +1,12 @@
+\begin{verbatim}
+sub foo_bar_hook_action {
+    my ( $context, $data ) = @_;
+
+    my $result  = 0;          # boolean set to fail
+    my $message = 'reason';   # string set to a reason for $result
+
+    # Do stuff here
+
+    return $result, $message;
+}
+\end{verbatim}

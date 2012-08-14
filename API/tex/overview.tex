@@ -1,0 +1,40 @@
+\begin{section}{Overview}
+  
+We introduce some of the core concepts and basic terminology for the \cPanel API.
+    
+  \begin{subsection}{Core Concepts}
+    \begin{itemize}
+    \item \define{Observer Pattern}
+      \begin{itemize}
+      \item The design pattern that the \cPanel API implements.
+      \item Consists of two categories, {\em subjects} and {\em observers}.
+      \item When the subject changes state, the registered observers are notified automatically.
+      \item In \cPanel, the subjects are {\em hookable events} and the observers are {\em hooks}.
+      \end{itemize}
+    \item \define{Hookable Events}
+      \begin{itemize}
+      \item Specific points in \cPanel and \WHM where customized code can be executed.
+      \item The \cPanel API provides an interface for writing code that works with \cPanel events.
+      \item Examples include creation/removal of an account or the beginning/end of an update or backup.
+      \item May permit the escalation of privileges.
+      \item May force execution of hooks to run as a specific user.
+      \item May permit a hook to block execution of further \cPanel code upon failure.
+      \end{itemize}
+    \item \define{Hooks}
+      \begin{itemize}
+      \item Customized code registered with a hookable event.
+      \item Specified to run as a specific user on the system, defers to the event for privilege escalation.
+      \item May be written as a script (perl/php) or a perl module.
+      \end{itemize}
+    \item \define{API 1}
+      \begin{itemize}
+      \item Targets \cPanel versions 11.30 and lower.
+      \item Primarily useful for writing skins or themes.
+      \end{itemize}
+    \item \define{API 2}
+      \begin{itemize}
+      \item Recommend API to use for \cPanel version 11.30 and later.
+      \end{itemize}
+    \end{itemize}
+  \end{subsection}  
+\end{section}
