@@ -1,0 +1,26 @@
+\begin{verbatim}
+sub api2_failme {
+
+    my $data_msg;
+
+    # do stuff and notice a problem; contrived example
+    if ( 1 != 0 ) {
+        my $err_msg = 'A contextual failure has occurred!';
+        $Cpanel::CPERROR{'custommoduleexample'} = $err_msg;
+
+        # Usually, you will nothing, i.e., 'return;' which givens an
+        #  empty data node in the response.  However, you may return
+        #  data if you see fit.
+        $data_msg = 'You may relay data in a contextual error scenario';
+        return { 'relevant_data' => $data_msg };
+    }
+
+    $data_msg = 'never renders due to pre-mature fail/return.';
+    return { 'this_will' => $data_msg };
+}
+\end{verbatim}
+
+%%
+% Written by David Neimeyer
+% https://github.com/CpanelInc/Custom-cPanel-Module
+%%

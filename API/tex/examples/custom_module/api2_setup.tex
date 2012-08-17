@@ -1,0 +1,27 @@
+\begin{verbatim}
+package Cpanel::CustomModuleExample;
+
+our $VERSION = 1.00;
+
+use strict;
+
+sub api2 {
+    my ($func) = @_;
+    my $api_ref = _get_api2_ref();
+    return $api_ref->{$func};
+}
+
+sub _get_api2_ref {
+    my $api_ref = {
+        'foobar' => {},
+        'bazblurg' => {},
+        'failme' => {},
+    };
+    return $api_ref;
+}
+\end{verbatim}
+
+%%
+% Written by David Neimeyer
+% https://github.com/CpanelInc/Custom-cPanel-Module
+%%

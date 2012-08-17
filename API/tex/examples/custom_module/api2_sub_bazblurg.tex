@@ -1,0 +1,28 @@
+\begin{verbatim}
+sub api2_bazblurg {
+
+    # siphon off the input args into a hash
+    my %OPTS = @_;
+
+    my $datas = [];
+
+    # do stuff here; contrived example
+    my $data = {
+        'name' => 'blah',
+        'key' => 'value',
+    };
+
+    foreach my $key ( keys %OPTS ) {
+        my %tmp_data = map { $_ => $data->{$_} } keys %{$data};
+        $tmp_data{$key} = $OPTS{$key};
+        push @{$datas}, \%tmp_data;
+    }
+
+    return $datas;
+}
+\end{verbatim}
+
+%%
+% Written by David Neimeyer
+% https://github.com/CpanelInc/Custom-cPanel-Module
+%%

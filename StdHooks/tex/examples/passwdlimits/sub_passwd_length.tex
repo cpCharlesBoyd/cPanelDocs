@@ -1,0 +1,9 @@
+\begin{verbatim}
+sub passwd_length {
+    my ( $context, $data ) = @_;
+
+    return 0, 'passwords under 12 characters are not permitted.' if length $data->{'new_password'} < 12;
+
+    return 1;
+}
+\end{verbatim}

@@ -1,0 +1,13 @@
+\begin{verbatim}
+sub describe {
+    my $hook = [
+        {
+            'namespace' => 'Passwd',
+            'function'  => 'ChangePasswd',
+            'stage'     => 'pre',
+            'hook'      => 'Example::PasswordLimitations::passwd_length',
+        },
+    ];
+    return $hook;
+}
+\end{verbatim}

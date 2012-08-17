@@ -1,0 +1,25 @@
+\begin{verbatim}
+sub api2_foobar {
+
+    # siphon off the input args into a hash
+    my %OPTS = @_;
+
+    # do stuff here; contrived example
+    my $data = {
+        'name' => 'blah',
+        'key' => 'value',
+        'input' => [],
+    };
+
+    foreach my $key ( keys %OPTS ) {
+        push @{ $data->{'input'} }, { $key => $OPTS{$key} };
+    }
+
+    return $data;
+}
+\end{verbatim}
+
+%%
+% Written by David Neimeyer
+% https://github.com/CpanelInc/Custom-cPanel-Module
+%%
