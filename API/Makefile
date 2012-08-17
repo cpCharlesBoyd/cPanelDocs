@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean veryclean
 
 LATEX='pdflatex'
 
@@ -9,7 +9,9 @@ api.pdf:
 	$(LATEX) api.tex
 
 clean:
-	rm -f *.log
-	rm -f *.aux
-	rm -f *.pdf
 	rm -f *.out
+	rm -f *.pdf
+
+veryclean: clean
+	rm -f *.aux
+	rm -f *.log

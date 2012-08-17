@@ -1,79 +1,37 @@
 \begin{section}{Getting Started}
   
-  In this section we cover some basic examples of how to use the standardized hooks.
+  In this section we cover some basic examples of how to use the \cPanel API.
+
+  \begin{itemize}
+  \item API2 features and functionality
+  \item Writing a Custom Perl Module with API2.
+  \item Standardized Hooks Revisited
+  \end{itemize}
+
+\end{section}
+
+\begin{section}{API2 Features and Functionality}
+ 
+% TODO
   
-  \begin{subsection}{Introduction to the Public API}
-    
-    The PHP PublicAPI client is a wrapper around the cPanel PHP library. It
-    provides the programmer with an easy way to create Service objects and
-    despatch the PublicAPI methods to them.
-    
-    First we need to instantiate the \cPanel PublicAPI instance.
-      
-\begin{verbatim}
-        require_once realpath( dirname(__FILE__) . '/../Util/Autoload.php');
-        $cp = Cpanel_PublicAPI::getInstance();
-\end{verbatim}
+\end{section}
 
-Create some initialization data to pass along.
 
-\begin{verbatim}
-$whmCfg = array(
-        'host' => '10.1.4.191',
-        'user' => 'root',
-        'password' => 'rootsecret'
-    );        
-\end{verbatim}
+\begin{section}{A Custom Perl Module}
 
-Now obtain a service object through the \cPanel library and set it up.
+\input{./tex/examples/custom_module/api2_setup.tex}
 
-\begin{verbatim}
-    $xmlapi = new Cpanel_Service_WHM($whmCfg);
-    $xmlapi->setPort('2087');
-    $xmlapi->set_port('2087');
-    
-    $response = $xmlapi->version();
-    echo "WHM Version: {$response->version}\n";
-\end{verbatim}
+\input{./tex/examples/custom_module/api2_sub_foobar.tex}
 
-\newpage
+\input{./tex/examples/custom_module/api2_sub_bazblurg.tex}
 
-\begin{verbatim}
-<?php
-TRY {
-    require_once realpath( dirname(__FILE__) . '/../Util/Autoload.php');
-    $cpCfg = array(
-        'cpanel'=>array(
-            'service'=>array(
-                'whm' => array(
-                    'host' => '10.1.4.191',
-                    'user' => 'root',
-                    'password' => 'rootsecret',
-                )
-            )
-        )
-    );
-    $cp = Cpanel_PublicAPI::getInstance($cpCfg);
-    $response = $cp->whm_api('version');
-    echo "WHM Version: {$response->version}\n";
-}
-CATCH(Exception $e) {
-    echo $e->getMessage() . "\n" . $e->getTraceAsString() . "\n";
-}
-echo "EOF: You've successfully ended the " . basename(__FILE__) . " script.\n";
-?>
-\end{verbatim}
-  \end{subsection}
+\input{./tex/examples/custom_module/api2_sub_failme.tex}
+  
+\end{section}
 
-  \newpage
 
-\begin{subsection}{NOTE!!}
+\begin{section}{Standardized Hooks Revisisted}
 
-You can write bash lines with my bash macro:
-
-\bash{ls \pipe sort -r}
-
-\bash[/usr/local]{grep error apache/logs/error\_log \pipe tail}
-
-\end{subsection}
+% TODO
+  
 \end{section}

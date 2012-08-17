@@ -1,11 +1,18 @@
-.PHONY: all api clean
+.PHONY: all api hooks clean veryclean
 
-all: api
+all: api hooks
 
 api:
 	make -C ./API
 
-clean:
-	rm *.pdf
-	make -C ./API clean
+hooks:
+	make -C ./StdHooks
 
+clean:
+	make -C ./API clean
+	make -C ./StdHooks clean
+
+veryclean:
+	make -C ./API veryclean
+	make -C ./StdHooks veryclean
+	rm -f *.pdf

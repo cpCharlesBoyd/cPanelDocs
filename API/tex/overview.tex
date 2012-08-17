@@ -1,4 +1,4 @@
-\begin{section}{Overview}
+\begin{section}{Overview of the \cPanel API}
   
 We introduce some of the core concepts and basic terminology for the \cPanel API.
     
@@ -26,15 +26,39 @@ We introduce some of the core concepts and basic terminology for the \cPanel API
       \item Specified to run as a specific user on the system, defers to the event for privilege escalation.
       \item May be written as a script (perl/php) or a perl module.
       \end{itemize}
-    \item \define{API 1}
+    \item \define{API1}
       \begin{itemize}
-      \item Targets \cPanel versions 11.30 and lower.
-      \item Primarily useful for writing skins or themes.
+      \item Functions directly add/delete/modify data on the server.
+      \item Data is printed directly to the \cPanel interface.
+      \item Useful for writing skins or themes.
       \end{itemize}
-    \item \define{API 2}
+    \item \define{API2}
       \begin{itemize}
-      \item Recommend API to use for \cPanel version 11.30 and later.
+      \item Functions return data structures that can be displayed to the browser or used in other scripts.
+      \item These functions do not directly add/delete/modify data on the server.
+      \item These data structures can be used via our XML API or through LivePHP/CGI scripts.
+      \item A complete re-write of API1 with some functionality overlap.
+      \end{itemize}
+    \item \define{XML and JSON APIs}
+      \begin{itemize}
+      \item Generates output in XML or JSON format.
+      \item Used when making calls to \cPanel functions in your own software.
+      \item Returns data structures from API 1 or API 2 calls in XML/JSON format.
+      \item Intended to be used remotely rather than directly on the server.
+      \end{itemize}
+    \item \define{Manage2 API}
+      \begin{itemize}
+      \item Provides mechanisms for retriviing/manipulating license information.
+      \item Returns data in XML, JSON or YAML format.
       \end{itemize}
     \end{itemize}
-  \end{subsection}  
+  \end{subsection}
+
+  \begin{subsection}{Anatomy of an API Call}
+    
+    %% TODO
+
+  \end{subsection}
+
 \end{section}
+

@@ -9,9 +9,9 @@ hooks.pdf:
 	$(LATEX) hooks.tex
 
 clean:
-	rm -f *.log
 	rm -f *.out
+	rm -f *.pdf
 
 veryclean: clean
 	rm -f *.aux
-	rm -f *.pdf
+	rm -f *.log
