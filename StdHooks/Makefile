@@ -1,12 +1,21 @@
-.PHONY: all clean veryclean
+.PHONY: all manual presentation clean veryclean
 
 LATEX='pdflatex'
 
-all: hooks.pdf
-	cp hooks.pdf ../hooks.pdf
+all: manual presentation
+	mv manual.pdf ../hooks-manual.pdf
+	mv presentation.pdf ../hooks-presentation.pdf
 
-hooks.pdf:
-	$(LATEX) hooks.tex
+manual: manual.pdf
+
+manual.pdf:
+	$(LATEX) manual.tex
+
+presentation: presentation.pdf
+
+presentation.pdf:
+	$(LATEX) presentation.tex
+	$(LATEX) presentation.tex
 
 clean:
 	rm -f *.out
@@ -15,3 +24,6 @@ clean:
 veryclean: clean
 	rm -f *.aux
 	rm -f *.log
+	rm -f *.toc
+	rm -f *.nav
+	rm -f *.snm

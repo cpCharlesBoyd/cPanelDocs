@@ -1,12 +1,14 @@
-.PHONY: all clean veryclean
+.PHONY: all manual clean veryclean
 
 LATEX='pdflatex'
 
-all: api.pdf
-	cp api.pdf ../api.pdf
+all: manual
+	mv manual.pdf ../api-manual.pdf
 
-api.pdf:
-	$(LATEX) api.tex
+manual: manual.pdf
+
+manual.pdf:
+	$(LATEX) manual.tex
 
 clean:
 	rm -f *.out
